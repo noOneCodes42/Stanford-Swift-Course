@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31FF74F52C86352200731C15 /* StanfordChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF74F42C86352200731C15 /* StanfordChallengeApp.swift */; };
-		31FF74F72C86352200731C15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF74F62C86352200731C15 /* ContentView.swift */; };
-		31FF74F92C86352400731C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FF74F82C86352400731C15 /* Assets.xcassets */; };
-		31FF74FC2C86352400731C15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FF74FB2C86352400731C15 /* Preview Assets.xcassets */; };
+		31FF750F2C8635AC00731C15 /* StanfordChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF750E2C8635AC00731C15 /* StanfordChallengeApp.swift */; };
+		31FF75112C8635AC00731C15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF75102C8635AC00731C15 /* ContentView.swift */; };
+		31FF75132C8635AC00731C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FF75122C8635AC00731C15 /* Assets.xcassets */; };
+		31FF75162C8635AC00731C15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FF75152C8635AC00731C15 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31FF74F12C86352200731C15 /* StanfordChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanfordChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		31FF74F42C86352200731C15 /* StanfordChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StanfordChallengeApp.swift; sourceTree = "<group>"; };
-		31FF74F62C86352200731C15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		31FF74F82C86352400731C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		31FF74FB2C86352400731C15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31FF750B2C8635AB00731C15 /* StanfordChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanfordChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31FF750E2C8635AC00731C15 /* StanfordChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StanfordChallengeApp.swift; sourceTree = "<group>"; };
+		31FF75102C8635AC00731C15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		31FF75122C8635AC00731C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31FF75152C8635AC00731C15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		31FF74EE2C86352200731C15 /* Frameworks */ = {
+		31FF75082C8635AB00731C15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,37 +32,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		31FF74E82C86352200731C15 = {
+		31FF75022C8635AB00731C15 = {
 			isa = PBXGroup;
 			children = (
-				31FF74F32C86352200731C15 /* StanfordChallenge */,
-				31FF74F22C86352200731C15 /* Products */,
+				31FF750D2C8635AC00731C15 /* StanfordChallenge */,
+				31FF750C2C8635AB00731C15 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		31FF74F22C86352200731C15 /* Products */ = {
+		31FF750C2C8635AB00731C15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				31FF74F12C86352200731C15 /* StanfordChallenge.app */,
+				31FF750B2C8635AB00731C15 /* StanfordChallenge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		31FF74F32C86352200731C15 /* StanfordChallenge */ = {
+		31FF750D2C8635AC00731C15 /* StanfordChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				31FF74F42C86352200731C15 /* StanfordChallengeApp.swift */,
-				31FF74F62C86352200731C15 /* ContentView.swift */,
-				31FF74F82C86352400731C15 /* Assets.xcassets */,
-				31FF74FA2C86352400731C15 /* Preview Content */,
+				31FF750E2C8635AC00731C15 /* StanfordChallengeApp.swift */,
+				31FF75102C8635AC00731C15 /* ContentView.swift */,
+				31FF75122C8635AC00731C15 /* Assets.xcassets */,
+				31FF75142C8635AC00731C15 /* Preview Content */,
 			);
 			path = StanfordChallenge;
 			sourceTree = "<group>";
 		};
-		31FF74FA2C86352400731C15 /* Preview Content */ = {
+		31FF75142C8635AC00731C15 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				31FF74FB2C86352400731C15 /* Preview Assets.xcassets */,
+				31FF75152C8635AC00731C15 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -70,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		31FF74F02C86352200731C15 /* StanfordChallenge */ = {
+		31FF750A2C8635AB00731C15 /* StanfordChallenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31FF74FF2C86352400731C15 /* Build configuration list for PBXNativeTarget "StanfordChallenge" */;
+			buildConfigurationList = 31FF75192C8635AC00731C15 /* Build configuration list for PBXNativeTarget "StanfordChallenge" */;
 			buildPhases = (
-				31FF74ED2C86352200731C15 /* Sources */,
-				31FF74EE2C86352200731C15 /* Frameworks */,
-				31FF74EF2C86352200731C15 /* Resources */,
+				31FF75072C8635AB00731C15 /* Sources */,
+				31FF75082C8635AB00731C15 /* Frameworks */,
+				31FF75092C8635AB00731C15 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +84,25 @@
 			);
 			name = StanfordChallenge;
 			productName = StanfordChallenge;
-			productReference = 31FF74F12C86352200731C15 /* StanfordChallenge.app */;
+			productReference = 31FF750B2C8635AB00731C15 /* StanfordChallenge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		31FF74E92C86352200731C15 /* Project object */ = {
+		31FF75032C8635AB00731C15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					31FF74F02C86352200731C15 = {
+					31FF750A2C8635AB00731C15 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = 31FF74EC2C86352200731C15 /* Build configuration list for PBXProject "StanfordChallenge" */;
+			buildConfigurationList = 31FF75062C8635AB00731C15 /* Build configuration list for PBXProject "StanfordChallenge" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 31FF74E82C86352200731C15;
-			productRefGroup = 31FF74F22C86352200731C15 /* Products */;
+			mainGroup = 31FF75022C8635AB00731C15;
+			productRefGroup = 31FF750C2C8635AB00731C15 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				31FF74F02C86352200731C15 /* StanfordChallenge */,
+				31FF750A2C8635AB00731C15 /* StanfordChallenge */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		31FF74EF2C86352200731C15 /* Resources */ = {
+		31FF75092C8635AB00731C15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FF74FC2C86352400731C15 /* Preview Assets.xcassets in Resources */,
-				31FF74F92C86352400731C15 /* Assets.xcassets in Resources */,
+				31FF75162C8635AC00731C15 /* Preview Assets.xcassets in Resources */,
+				31FF75132C8635AC00731C15 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		31FF74ED2C86352200731C15 /* Sources */ = {
+		31FF75072C8635AB00731C15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FF74F72C86352200731C15 /* ContentView.swift in Sources */,
-				31FF74F52C86352200731C15 /* StanfordChallengeApp.swift in Sources */,
+				31FF75112C8635AC00731C15 /* ContentView.swift in Sources */,
+				31FF750F2C8635AC00731C15 /* StanfordChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		31FF74FD2C86352400731C15 /* Debug */ = {
+		31FF75172C8635AC00731C15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +208,7 @@
 			};
 			name = Debug;
 		};
-		31FF74FE2C86352400731C15 /* Release */ = {
+		31FF75182C8635AC00731C15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +264,7 @@
 			};
 			name = Release;
 		};
-		31FF75002C86352400731C15 /* Debug */ = {
+		31FF751A2C8635AC00731C15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -293,7 +293,7 @@
 			};
 			name = Debug;
 		};
-		31FF75012C86352400731C15 /* Release */ = {
+		31FF751B2C8635AC00731C15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -325,25 +325,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31FF74EC2C86352200731C15 /* Build configuration list for PBXProject "StanfordChallenge" */ = {
+		31FF75062C8635AB00731C15 /* Build configuration list for PBXProject "StanfordChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				31FF74FD2C86352400731C15 /* Debug */,
-				31FF74FE2C86352400731C15 /* Release */,
+				31FF75172C8635AC00731C15 /* Debug */,
+				31FF75182C8635AC00731C15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		31FF74FF2C86352400731C15 /* Build configuration list for PBXNativeTarget "StanfordChallenge" */ = {
+		31FF75192C8635AC00731C15 /* Build configuration list for PBXNativeTarget "StanfordChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				31FF75002C86352400731C15 /* Debug */,
-				31FF75012C86352400731C15 /* Release */,
+				31FF751A2C8635AC00731C15 /* Debug */,
+				31FF751B2C8635AC00731C15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 31FF74E92C86352200731C15 /* Project object */;
+	rootObject = 31FF75032C8635AB00731C15 /* Project object */;
 }
