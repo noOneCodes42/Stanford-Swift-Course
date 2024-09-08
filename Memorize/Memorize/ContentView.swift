@@ -3,13 +3,14 @@
 //  Memorize
 //
 //  Created by Neel Arora on 8/29/24.
-//
+//MARK: The UI
 
 import SwiftUI
 
 struct ContentView: View {
+    var viewModel: EmojiMemoryGame
     let emojis = ["👻","🎃","😈","🕷️","💀","🕸️","🧙","🙀","👹","😱","☠️","🍭"]
-    @State var cardCount: Int = 4
+    
     // some view, means that it has to behave like a view, and it will set the view to whatever the program returns
     // The view is built out of other views.
     // Everything we have so far is a view and we aare combining all the view with the var body
@@ -21,50 +22,22 @@ struct ContentView: View {
         // ZStack on top of each other
         // HStack horizontal
         
-        VStack {
-            ScrollView{
-                cards
-            }
-                .foregroundStyle(.orange)
-            Spacer()
-
-            cardCountAdjusters
+        
+        ScrollView{
+            cards
         }
+        .foregroundStyle(Color.orange)
         
         .padding()
     }
-    var cardCountAdjusters: some View{
-        HStack{
-            cardRemover
-            Spacer()
-            cardAdder
-            
-        }
-        .imageScale(.large)
-        .font(.largeTitle)
-    }
     var cards: some View{
-        LazyVGrid(columns:[GridItem(.adaptive(minimum:120))]) {
-            ForEach(0..<cardCount, id:\.self){ index in
+        LazyVGrid(columns:[GridItem(.adaptive(minimum:85))]) {
+            ForEach(0..<emojis.count, id:\.self){ index in
                 
                 CardView(content: emojis[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
-    }
-    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
-        Button(action: {
-            cardCount += offset
-        }, label: {
-            Image(systemName: symbol)
-        })
-        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
-    }
-    var cardRemover: some View{
-        return cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
-    }
-    var cardAdder: some View{
-        return cardCountAdjuster(by: 1, symbol: "rectangle.stack.badge.plus.fill")
     }
 }
 // No math or backend or anything not relating to ui
@@ -84,10 +57,10 @@ struct CardView: View {
                 Text("\(content)").font(.largeTitle)
             }
             // It is the opposite when using Group
-                .opacity(isFacedUp ? 1 : 0)
+            .opacity(isFacedUp ? 1 : 0)
             // If it is faced up then it is transparent else it is not transparent
             base.fill().opacity(isFacedUp ? 0 : 1)
-
+            
         }.onTapGesture {
             // Changes the bool value
             isFacedUp.toggle()
