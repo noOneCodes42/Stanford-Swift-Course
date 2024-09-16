@@ -8,79 +8,75 @@
 import SwiftUI
 
 struct ContentView: View {
-    var christmasTheme = ["🎅","❄️","☃️","❄️","🎅","☃️","🎄","🎄"]
-    var halloweenTheme = ["😱","👹","😈","🧙","👹","😈","😱","🧙","☠️","☠️"]
+    var christmasTheme = ["🎅","🎅","❄️","❄️","☃️","☃️","🎄","🎄"]
+    var halloweenTheme = ["👹","👹","😱","😱","😈","🧙","😈","🧙","☠️","☠️"]
     var waterTheme = ["🌊","🌊","🏄","🏄","🎣","🎣","🛶","🛶","🐠","🐠","🦈","🦈"]
-    @State var theTheme = [""]
-
-    @State var cards = 4
+    @State var sizeAdjuster: CGFloat = 120
+    @State var theTheme = ["🎅","❄️","☃️","❄️","🎅","☃️","🎄","🎄"]
+    @State var cardColor: Color = .orange
     var body: some View {
         
         VStack {
             Text("Memorize!").font(.largeTitle)
+            
             ScrollView{
-                if theTheme == christmasTheme{
-                    items
-                        .foregroundStyle(.green)
-                }else if theTheme == waterTheme{
-                    items
-                        .foregroundStyle(.blue)
-                }else if theTheme == halloweenTheme{
-                    items
-                        .foregroundStyle(.red)
-                }else{
-                    VStack{
-                        Text("Choose one of the icons to begin")
-                    }
-                    items
-                        .foregroundStyle(.opacity(0))
-                }
-                
-
+                items.foregroundStyle(cardColor)
             }
             buttonView
         }
         .padding()
     }
+    
     var buttonView: some View{
         HStack{
-            VStack{
-                buttonTheme(symbol: "star", theme: christmasTheme)
-                Text("Christmas")
-                    .font(.caption)
-                    .foregroundStyle(.blue)
-            }
+            christmas
             Spacer()
-            VStack{
-                buttonTheme(symbol: "lightbulb.min.badge.exclamationmark", theme: halloweenTheme)
-                Text("Halloween")
-                    .font(.caption)
-                    .foregroundStyle(.blue)
-            }
+            halloween
             Spacer()
-            VStack{
-                buttonTheme(symbol: "drop", theme: waterTheme)
-                Text("Water")
-                    .font(.caption)
-                    .foregroundStyle(.blue)
-            }
+            water
+
         }
     }
+    func themeButton(symbol: String, theme: [String], label: String, color: Color) -> some View{
+        VStack{
+            buttonTheme(symbol: symbol, theme: theme, color:color)
+            Text(label)
+                .font(.caption)
+                .foregroundStyle(.blue)
+        }
+    }
+    var christmas: some View{
+        themeButton(symbol: "star", theme: christmasTheme, label: "Christmas", color: .orange)
+    }
+    var halloween: some View{
+        themeButton(symbol: "lightbulb.min.badge.exclamationmark", theme: halloweenTheme, label: "Halloween", color: .red)
     
+    }
+    var water: some View{
+        themeButton(symbol: "drop", theme: waterTheme, label: "Water", color: .blue)
+    }
     var items: some View{
         // Add the .shuffled here in order to change the order
-        LazyVGrid(columns:[GridItem(.adaptive(minimum: 120))]){
+        LazyVGrid(columns:[GridItem(.adaptive(minimum: sizeAdjuster))]){
             ForEach(0..<theTheme.count, id:\.self){index in
-                ThemeView(cardContent: theTheme.shuffled()[index])
+                ThemeView(cardContent: theTheme[index])
                     .aspectRatio(contentMode: .fit)
             }
         }
         .padding()
     }
-   
-    func buttonTheme(symbol: String, theme: [String]) -> some View{
+    func widthThatBestFits(cardCount: Int) -> CGFloat {
+        let width: CGFloat = (-4*CGFloat(cardCount))+190
+        return width
+    }
+    func buttonTheme(symbol: String, theme: [String], color: Color) -> some View{
         Button(action: {
-            theTheme = theme
+            let foo = Int.random(in: 4..<theme.count)
+            
+            theTheme = (theme[0..<4]+theme[4..<foo]).shuffled()
+            cardColor = color
+            sizeAdjuster = widthThatBestFits(cardCount: theme.count)
+            
         }, label: {
             Image(systemName: symbol)
         })
@@ -90,7 +86,7 @@ struct ContentView: View {
 struct ThemeView: View{
     let base = RoundedRectangle(cornerRadius: 12)
     let cardContent: String
-    @State var isFacingUp = false
+    @State var isFacingUp = true
     var body: some View{
         ZStack{
             Group{

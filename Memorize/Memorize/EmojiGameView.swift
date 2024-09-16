@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct EmojiGameView: View {
-    var viewModel: EmojiMemoryGame
-    let emojis = ["👻","🎃","😈","🕷️","💀","🕸️","🧙","🙀","👹","😱","☠️","🍭"]
+    // Difference between ObservedObject VS. State
+    // State is tied to the lifetime of the view
+    // ObsevedObject just changes when something changes, the lifetime depends on something
+    // State can only be used in one view
+    // Observed can be used anywhere
+    @ObservedObject var viewModel: EmojiMemoryGame
     
     // some view, means that it has to behave like a view, and it will set the view to whatever the program returns
     // The view is built out of other views.
@@ -22,29 +26,36 @@ struct EmojiGameView: View {
         // ZStack on top of each other
         // HStack horizontal
         
-        
-        ScrollView{
-            cards
+        VStack{
+            ScrollView{
+                cards
+                    .animation(.default, value: viewModel.cards)
+            }
+            Button("Shuffle"){
+                viewModel.shuffle()
+            }
         }
         .foregroundStyle(Color.orange)
         
         .padding()
     }
     var cards: some View{
-        LazyVGrid(columns:[GridItem(.adaptive(minimum:85))]) {
-            ForEach(0..<emojis.count, id:\.self){ index in
-                
-                CardView(content: emojis[index])
+        LazyVGrid(columns:[GridItem(.adaptive(minimum:85), spacing: 0)], spacing: 0) {
+            ForEach(viewModel.cards){ card in
+                CardView(card: card)
                     .aspectRatio(2/3, contentMode: .fit)
+                    .padding(4)
+                    .onTapGesture {
+                        viewModel.choose(card)
+                    }
             }
         }
     }
 }
-// No math or backend or anything not relating to ui
-// When self is immutable, use @State, or use game logiv
+// No math or backend or anything not relating to UI
+// When self is immutable, use @State, or use game logic
 struct CardView: View {
-    let content: String
-    @State var isFacedUp = true
+    let card: MemorizeGameLogic<String>.Card
     
     var body: some View {
         let base =  RoundedRectangle(cornerRadius: 12)
@@ -54,17 +65,18 @@ struct CardView: View {
                 // In order to have it display your image us Image(named: ) instead of Image(systemName: ).
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
-                Text("\(content)").font(.largeTitle)
+                Text("\(card.content)")
+                    .font(.system(size: 200))
+                    .minimumScaleFactor(0.01)
+                    .aspectRatio(1,contentMode: .fit)
             }
             // It is the opposite when using Group
-            .opacity(isFacedUp ? 1 : 0)
-            // If it is faced up then it is transparent else it is not transparent
-            base.fill().opacity(isFacedUp ? 0 : 1)
+            .opacity(card.isFacedUp ? 1 : 0)
+            // If it is faced up then it is transparent else it is not transparents
+            base.fill().opacity(card.isFacedUp ? 0 : 1)
             
-        }.onTapGesture {
-            // Changes the bool value
-            isFacedUp.toggle()
         }
+        .opacity(card.isFacedUp || !card.isMathced ? 1:0)
     }
 }
 
@@ -73,7 +85,8 @@ struct CardView: View {
 
 
 
-
+// We are creating a new view model
+// It is getting exucted everytime something changes
 #Preview {
-    EmojiGameView()
+    EmojiGameView(viewModel: EmojiMemoryGame())
 }
