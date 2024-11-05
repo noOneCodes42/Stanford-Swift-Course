@@ -35,7 +35,7 @@ struct EmojiGameView: View {
                 viewModel.shuffle()
             }
         }
-        .foregroundStyle(Color.orange)
+        .foregroundStyle(.orange)
         
         .padding()
     }
