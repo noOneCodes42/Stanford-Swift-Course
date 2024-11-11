@@ -15,6 +15,7 @@ struct Theme: CustomDebugStringConvertible{
     let numberOfPairs: Int
     let color: String
     var randomized: Bool = false
+    var gradient: Bool = false
 }
 
 let themes1: [Theme] = [

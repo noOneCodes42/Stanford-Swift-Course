@@ -64,9 +64,7 @@ class Controller: ObservableObject{
     }
     
     func shuffle(){
-        print("\(cards)1234")
         model.shuffle()
-        print("h")
         objectWillChange.send()
         
     }
@@ -81,6 +79,34 @@ class Controller: ObservableObject{
         let newTheme = themes1.randomElement()
         self.theme = newTheme!
         model = Controller.rerun(theme: theme)
+        
+    }
+    func getGradient() -> Gradient{
+        switch theme.color{
+        case "green":
+            return Gradient(colors: [.green, .red, .white])
+        case "red":
+            return Gradient(colors: [.red, .black])
+        case "blue":
+            return Gradient(colors: [.blue, .cyan])
+        case "yellow":
+            return Gradient(colors: [.yellow, .cyan])
+        case "orange":
+            return Gradient(colors: [.orange, .yellow])
+        case "purple":
+            return Gradient(colors: [.purple, .pink])
+        case "pink":
+            return Gradient(colors: [.pink, .purple])
+        case "cyan":
+            return Gradient(colors: [.cyan, .yellow])
+        case "brown":
+            return Gradient(colors: [.brown, .black])
+        case "gray":
+            return Gradient(colors: [.gray, .black])
+        default:
+            return Gradient(colors: [.gray, .black])
+        }
+        
         
     }
     func getColor() -> Color{
@@ -104,10 +130,22 @@ class Controller: ObservableObject{
         case "brown":
             return .brown
         case "gray":
-                return .gray
+            return .gray
         default:
             return .gray
         }
+        
+    }
+    func isGameOver() -> Bool{
+        return model.isGameOver
+        
+    }
+    func getTimePlayed() -> Date{
+        return model.getTime()
+        
+    }
+    func getTotalTime() -> Double{
+        return model.getTimeTaken()
     }
     
 }

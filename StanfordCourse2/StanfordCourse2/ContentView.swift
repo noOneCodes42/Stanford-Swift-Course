@@ -14,8 +14,14 @@ struct ContentView: View {
             Text("Neel Shuffle Cards")
                 .font(.system(size: 36))
                 .foregroundStyle(.cyan)
+            if !viewModel.isGameOver(){
+                Text("\(viewModel.getTimePlayed(), style: .timer)")
+            }else{
+                Text("Time Taken: \(Int(viewModel.getTotalTime())) seconds")
+            }
             Text("Score: \(viewModel.getScore())")
             Text(" \(viewModel.theme.name)")
+            
             ScrollView{
                 cards
                     .animation(.default, value: viewModel.cards)
@@ -24,19 +30,22 @@ struct ContentView: View {
                 viewModel.startGame()
             }
         }
-        .foregroundStyle(viewModel.getColor())
+        .foregroundStyle(viewModel.getGradient())
         .padding()
     }
     var cards: some View{
         LazyVGrid(columns:[GridItem(.adaptive(minimum:85), spacing: 0)], spacing: 0){
             ForEach(viewModel.cards){ card in
-                Cards(card: card)
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .padding(4)
-                    .onTapGesture {
-                        viewModel.choose(card)
-                    
-                    }
+                VStack(spacing: 0){
+                    Cards(card: card, gradient: viewModel.getGradient())
+                        .aspectRatio(2/3, contentMode: .fit)
+                        .padding(4)
+                        .onTapGesture {
+                            viewModel.choose(card)
+                            
+                        }
+                    Text("\(card.id)")
+                }
             }
         
         }
@@ -44,8 +53,8 @@ struct ContentView: View {
 }
 
 struct Cards: View{
-    let viewModel = Controller()
     let card: ModelBehindTheScenes<String>.Card
+    let gradient: Gradient
     var body: some View{
         
         let base = RoundedRectangle(cornerRadius: 12)
